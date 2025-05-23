@@ -1,5 +1,5 @@
 
-
+let cards = document.querySelectorAll("card")
 
 
 async function fetchData() {
@@ -21,3 +21,9 @@ async function fetchData() {
     console.log(title)
 }
 
+console.log(typeof cards);
+console.log(cards.length);
+
+
+//let card1 = cards.querySelector("#card1");
+//console.log(card1);
