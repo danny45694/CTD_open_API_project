@@ -11,11 +11,20 @@ html {
 .navBar {
     display: flex;
     flex-direction: row;
+    color: white;
+    font-size: 34px;
+    justify-content: center;
 }
 
 ul {
+    display: flex;
+    flex-direction: row;
     list-style-type: none;
     padding: 0px;
-    margin: 0px;
-    gap: 5px;
+
+}
+
+.cards {
+    display: flex;
+    color: white;
 }
