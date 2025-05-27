@@ -1,5 +1,5 @@
 
-let cards = document.querySelectorAll("card")
+let cards = document.querySelectorAll(".card")
 
 
 async function fetchData() {
