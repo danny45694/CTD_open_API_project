@@ -59,11 +59,16 @@ ul {
 
 .card {
     background: white;
-    width: 200px;
+    width: 100px;
     height: 200px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+}
+
+#card1 {
+    width: 200px;
+    height: 200px;
 }
 
 .card:hover {
