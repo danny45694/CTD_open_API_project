@@ -40,12 +40,6 @@ ul {
     color: white;
 }
 
-#bigCardHolder {
-    display: flex;
-    justify-content: center;
-
-}
-
 .bigCardHolder {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -66,7 +60,7 @@ ul {
     cursor: pointer;
 }
 
-#card1 {
+#card img {
     width: 200px;
     height: 200px;
 }
