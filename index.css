@@ -60,14 +60,13 @@ ul {
     cursor: pointer;
 }
 
-#card img {
+.card img {
     width: 200px;
     height: 200px;
 }
 
-.card:hover {
-    background: blue;
-    border: solid 10px black;
+.card img:hover {
     width: 215px;
     height: 215px;
 }
+

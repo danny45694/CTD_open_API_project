@@ -67,5 +67,7 @@ console.log(cards.length);
 fetchData();
 
 
+
+
 //let card1 = cards.querySelector("#card1");
 //console.log(card1);
