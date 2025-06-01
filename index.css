@@ -11,6 +11,9 @@ html {
 
 .navBar {
     display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
     flex-direction: row;
     color: white;
     font-size: 34px;
@@ -41,27 +44,38 @@ ul {
     color: white;
 }
 
-.bigCardHolder {
+/* .bigCardHolder {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto); /* optional if cards are equal height */
+  grid-template-rows: repeat(2, auto); 
   gap: 2rem;
   justify-content: center;
   max-width: 1000px;
   margin: 0 auto;
   padding: 1rem;
 }
+*/
+.bigCardHolder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
 
 .card {
-    width: 200px;
-    color: white;
-    width: 100px;
-    height: 200px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 10px;
+   border-radius: 8px;
+   text-align: center;
+   padding: 8px;
+   transition: transform 0.2s ease;
 }
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
 .cardText {
     font-size: 24px;
     color: white;
@@ -70,12 +84,17 @@ ul {
 }
 
 .card img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.card img:hover {
-    width: 215px;
-    height: 215px;
+@media (max-width: 600px) {
+  .navButton {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+  .cardTitle {
+    font-size: 16px;
+  }
 }
-

@@ -1,6 +1,28 @@
 
 let cards = document.querySelectorAll(".card")
 
+const requestURL = "https://api.sampleapis.com/coffee/"
+const btnIced = document.getElementById("btnIced")
+const btnHot = document.getElementById("btnHot");
+
+const cardsContainer = document.getElementById("cardsContainer");
+
+function createCoffeeCard(object) {
+    let card = document.createElement("div");
+    card.classList.add("card"); // Add class to card
+
+    let img = document.createElement("img");
+    img.src = object.image;
+
+    const title = document.createElement("p");
+    title.classList.add("cardTitle");
+    title.textContent = object.title;
+
+    card.appendChild(img);
+    card.appendChild(title);
+
+    return card;
+}
 
 async function fetchData() {
     const requestURL = "https://api.sampleapis.com/coffee/iced"
