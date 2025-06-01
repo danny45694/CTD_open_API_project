@@ -1,4 +1,5 @@
 body {
+    font-family: Arial, sans-serif;
     background-image: url("/Images/background.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -52,12 +53,20 @@ ul {
 }
 
 .card {
-    background: white;
+    width: 200px;
+    color: white;
     width: 100px;
     height: 200px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    padding: 10px;
+}
+.cardText {
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+    
 }
 
 .card img {
