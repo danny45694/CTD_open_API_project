@@ -3,21 +3,26 @@ body {
     background-image: url("/Images/background.png");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
 }
 
-html {
-    height: 100%
-}
 
 .navBar {
     display: flex;
     justify-content: center;
     gap: 30px;
     padding: 15px;
-    flex-direction: row;
-    color: white;
-    font-size: 34px;
     justify-content: center;
+}
+
+.navButton {
+  background-color: grey;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 ul {
@@ -44,17 +49,7 @@ ul {
     color: white;
 }
 
-/* .bigCardHolder {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto); 
-  gap: 2rem;
-  justify-content: center;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-*/
+
 .bigCardHolder {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
