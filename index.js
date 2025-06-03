@@ -41,9 +41,20 @@ async function fetchIcedCoffee() {
 
     const coffees = await response.json();
 
+    const seenTitles = [];
+
     coffees.forEach(coffeeItem => {
-      const oneCard = createCoffeeCard(coffeeItem);
-      cardsContainer.appendChild(oneCard);
+      if(coffeeItem.title === "CofCof") {
+        return;
+      }
+    
+    if (seenTitles.includes(coffeeItem.title)) {
+      return;
+    }
+
+    seenTitles.push(coffeeItem.title);
+    const oneCard = createCoffeeCard(coffeeItem);
+    cardsContainer.appendChild(oneCard);
     });
   } catch (err) {
     showMessage(`Error fetching iced coffee: ${err.message}`, true);

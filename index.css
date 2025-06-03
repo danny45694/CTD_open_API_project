@@ -1,9 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
-    background-image: url("/Images/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
+  color: white;
+  font-family: Arial, sans-serif;
+  background-image: url("/Images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
 }
 
 
@@ -80,7 +83,8 @@ ul {
 
 .card img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
     display: block;
 }
 
