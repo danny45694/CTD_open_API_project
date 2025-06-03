@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" href="index.css" />
     <title>Six Coffee Recipes, One Perfect Cup</title>
 </head>
 <body>
+    
     <nav class="navBar">
+
+        <button id="btnIced" class="navButton active">Iced Coffee</button>
+        <button id="btnHot" class="navButton">Hot Coffee</button>
         <ul>
             <li class="Home">HOME</li>
             <li class="sixWays">SIX WAYS TO BREW</li>
@@ -21,14 +25,10 @@
         </ul>
     </div>
 
-    <div class = "bigCardHolder">
-        <div class = "card" id="1">Testing</div>
-        <div class = "card" id="2"></div>
-        <div class = "card" id="3"></div>
-        <div class = "card" id="4"></div>
-        <div class = "card" id="5"></div>
-        <div class = "card" id="6"></div>
+    <div id="cardsContainer" class="bigCardHolder">
+    
     </div>
+     
     <script src="index.js"></script>
 </body>
 </html>

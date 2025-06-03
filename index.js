@@ -1,29 +1,97 @@
 
 let cards = document.querySelectorAll(".card")
 
+const requestURL = "https://api.sampleapis.com/coffee/";
+const btnIced = document.getElementById("btnIced");
+const btnHot = document.getElementById("btnHot");
 
-async function fetchData() {
-    const requestURL = "https://api.sampleapis.com/coffee/iced"
-    const request = new Request(requestURL);
-    const response = await fetch(request);
-    const coffees = await response.json();
+const cardsContainer = document.getElementById("cardsContainer");
 
-    console.log(coffees)
-
-   /*  .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-
-    const data = response.json();
-    */
-
-    const title = coffees[0].title;
-    console.log(title)
+function clearUI() {
+    cardsContainer.innerHTML = "";
 }
 
-console.log(typeof cards);
-console.log(cards.length);
+function createCoffeeCard(object) {
+    const card = document.createElement("div");
+    card.classList.add("card"); // Add class to card
+
+    const img = document.createElement("img");
+    img.src = object.image;
+
+    const title = document.createElement("p");
+    title.classList.add("cardTitle");
+    title.textContent = object.title;
+
+    card.appendChild(img);
+    card.appendChild(title);
+
+    return card;
+}
+
+async function fetchIcedCoffee() {
+  clearUI();
+  btnIced.classList.add("active");
+  btnHot.classList.remove("active");
+
+  try {
+    const response = await fetch(requestURL + "iced");
+    if (!response.ok) {
+      throw new Error(`Server returned ${response.status}`);
+    }
+
+    const coffees = await response.json();
+
+    const seenTitles = [];
+
+    coffees.forEach(coffeeItem => {
+      if(coffeeItem.title === "CofCof") {
+        return;
+      }
+    
+    if (seenTitles.includes(coffeeItem.title)) {
+      return;
+    }
+
+    seenTitles.push(coffeeItem.title);
+    const oneCard = createCoffeeCard(coffeeItem);
+    cardsContainer.appendChild(oneCard);
+    });
+  } catch (err) {
+    showMessage(`Error fetching iced coffee: ${err.message}`, true);
+  }
+}
 
 
-//let card1 = cards.querySelector("#card1");
-//console.log(card1);
+async function fetchHotCoffee() {
+  clearUI();
+  btnHot.classList.add("active");
+  btnIced.classList.remove("active");
+
+  try {
+    const response = await fetch(requestURL + "hot");
+    if (!response.ok) {
+      throw new Error(`Server returned ${response.status}`);
+    }
+
+    const coffees = await response.json();
+
+    coffees.forEach(coffeeItem => {
+      const oneCard = createCoffeeCard(coffeeItem);
+      cardsContainer.appendChild(oneCard);
+    });
+  } catch (err) {
+    showMessage(`Error fetching hot coffee: ${err.message}`, true);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    fetchIcedCoffee();
+
+    btnIced.addEventListener("click", () => {
+        fetchIcedCoffee();
+    });
+
+    btnHot.addEventListener("click", () => {
+        fetchHotCoffee();
+    });
+});

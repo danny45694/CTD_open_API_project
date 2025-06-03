@@ -1,19 +1,31 @@
 body {
-    background-image: url("/Images/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+  color: white;
+  font-family: Arial, sans-serif;
+  background-image: url("/Images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
 }
 
-html {
-    height: 100%
-}
 
 .navBar {
     display: flex;
-    flex-direction: row;
-    color: white;
-    font-size: 34px;
     justify-content: center;
+    gap: 30px;
+    padding: 15px;
+    justify-content: center;
+}
+
+.navButton {
+  background-color: grey;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 ul {
@@ -40,35 +52,48 @@ ul {
     color: white;
 }
 
-#bigCardHolder {
-    display: flex;
-    justify-content: center;
-
-}
 
 .bigCardHolder {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto); /* optional if cards are equal height */
-  gap: 2rem;
-  justify-content: center;
-  max-width: 1000px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
   padding: 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
 }
 
+
 .card {
-    background: white;
-    width: 200px;
-    height: 200px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+   border-radius: 8px;
+   text-align: center;
+   padding: 8px;
+   transition: transform 0.2s ease;
 }
 
 .card:hover {
-    background: blue;
-    border: solid 10px black;
-    width: 215px;
-    height: 215px;
+    transform: translateY(-3px);
+}
+
+.cardText {
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+    
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 600px) {
+  .navButton {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+  .cardTitle {
+    font-size: 16px;
+  }
 }
