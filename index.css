@@ -27,6 +27,11 @@ body {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+.navButton.active {
+  background-color: orange; 
+  border: 2px solid white;     
+  color: white;
+}
 
 ul {
     display: flex;
@@ -72,13 +77,6 @@ ul {
 
 .card:hover {
     transform: translateY(-3px);
-}
-
-.cardText {
-    font-size: 24px;
-    color: white;
-    padding: 10px;
-    
 }
 
 .card img {

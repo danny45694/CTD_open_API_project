@@ -44,20 +44,21 @@ async function fetchIcedCoffee() {
     const seenTitles = [];
 
     coffees.forEach(coffeeItem => {
-      if(coffeeItem.title === "CofCof") {
+      const standardizedTitle = coffeeItem.title.trim().toLowerCase();
+      if(standardizedTitle === "cofcof") {
         return;
       }
     
-    if (seenTitles.includes(coffeeItem.title)) {
+    if (seenTitles.includes(standardizedTitle)) {
       return;
     }
 
-    seenTitles.push(coffeeItem.title);
+    seenTitles.push(standardizedTitle);
     const oneCard = createCoffeeCard(coffeeItem);
     cardsContainer.appendChild(oneCard);
     });
   } catch (err) {
-    showMessage(`Error fetching iced coffee: ${err.message}`, true);
+    console.error("This is an error message.");
   }
 }
 
@@ -80,8 +81,18 @@ async function fetchHotCoffee() {
       cardsContainer.appendChild(oneCard);
     });
   } catch (err) {
-    showMessage(`Error fetching hot coffee: ${err.message}`, true);
+    console.error("This is an error message.");
   }
+ removeUnwantedCards();
+}
+
+function removeUnwantedCards() {
+  document.querySelectorAll(".card").forEach(card => {
+    const title = card.querySelector(".cardTitle").textContent.trim();
+    if (title === "CofCof" || title === "Latte Choco") {
+      card.remove();
+    }
+  });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
